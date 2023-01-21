@@ -25,5 +25,12 @@ function updateVotes(article_id, inc_votes) {
       else return result.rows;
     });
 }
+function delCommentMdl(id) {
+  return db
+    .query("DELETE FROM comments WHERE comment_id=$1 RETURNING *;", [id])
+    .then((data) => {
+      return data.rows;
+    });
+}
 
-module.exports = { postArticleMdl, updateVotes };
+module.exports = { postArticleMdl, updateVotes, delCommentMdl };

@@ -8,7 +8,7 @@ const {
   getarticle_id,
   getUsers,
 } = require("./Conrollers/getConroller");
-const { postArticle, patcharticle_id } = require("./Conrollers/postConroller");
+const { postArticle, patcharticle_id ,delComment} = require("./Conrollers/postConroller");
 const app = express();
 app.use(express.json());
 app.get("/api", getapi);
@@ -18,7 +18,7 @@ app.get(`/api/articles/:article_id/comments`, getarticle_cmnt);
 app.post("/api/articles/:article_id/comments", postArticle);
 app.patch(`/api/articles/:article_id`, patcharticle_id);
 app.get("/api/users", getUsers);
-
+app.delete(`/api/comments/:comment_id`, delComment);
 app.get("/", (request, response, next) => {
   response.status(404).send({ msg: "Path not found" });
 });

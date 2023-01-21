@@ -1,5 +1,5 @@
 const db = require("../db/connection");
-const { postArticleMdl, updateVotes } = require("../modles/postModel");
+const { postArticleMdl, updateVotes ,delCommentMdl} = require("../modles/postModel");
 
 const postArticle = (req, res, next) => {
   const { article_id } = req.params;
@@ -24,4 +24,16 @@ function patcharticle_id(req, res, next) {
       next(err);
     });
 }
-module.exports = { postArticle, patcharticle_id };
+function delComment(req, res, next) {
+  const { comment_id: id } = req.params;
+  delCommentMdl(id)
+    .then((data) => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
+}
+module.exports = { postArticle, patcharticle_id, delComment };
+
