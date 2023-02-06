@@ -1,4 +1,5 @@
 const { response } = require("express");
+const cors =require('cors')
 const express = require("express");
 const {
   getTopics,
@@ -10,6 +11,7 @@ const {
 } = require("./Conrollers/getConroller");
 const { postArticle, patcharticle_id ,delComment} = require("./Conrollers/postConroller");
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.get("/api", getapi);
 app.get("/api/topics", getTopics);
