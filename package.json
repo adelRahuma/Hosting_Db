@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "setupFilesAfterEnv": "jest-sorted",
     "start": "node listen.js",
-    "seed-prod": "NODE_ENV=Pb roduction npm run seed"
+    "seed-prod": "NODE_ENV=Production npm run seed"
   },
   "repository": {
     "type": "git",
