@@ -390,9 +390,6 @@ test("Returns a 404 err status when passing topic which doesn`t exist", () => {
 
 ///////////////////////////////////
 
-
-
-
 describe("12- Deletes specific comment by it's ID", () => {
   test("It should delete the specified comment by it's ID", () => {
     return request(app)
